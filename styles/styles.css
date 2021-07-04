@@ -1,0 +1,260 @@
+/*
+0 - 600px:      Phone(this is where our normal styles will apply.)
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+1200 - 1800px:  Desktop
+1800px + :      Big Desktop
+
+
+$breakpoints
+-big-desktop
+-desktop
+-tab-land
+-tab-port
+-phone
+*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal .modal-content {
+  background: #f4f4f4;
+  text-align: center;
+  margin: 50% auto;
+  width: 250px;
+  border-radius: 10px;
+  padding: 1rem;
+  -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+          box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  -webkit-animation-name: modalopen;
+          animation-name: modalopen;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@media (min-width: 112.5em) {
+  .modal .modal-content {
+    width: 650px;
+    margin: 10% auto;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .modal .modal-content {
+    width: 350px;
+    margin: 10% auto;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 56.25em) {
+  .modal .modal-content {
+    width: 550px;
+    margin: 10% auto;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 37.5em) {
+  .modal .modal-content {
+    width: 550px;
+    margin: 10% auto;
+    padding: 2rem;
+  }
+}
+
+.modal-content .answer-choice {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.modal-content .text-win {
+  color: #28a745;
+}
+
+.modal-content .text-lose {
+  color: #dc3545;
+}
+
+.modal-content h1 {
+  margin-bottom: 1.25rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  margin-top: 1.25rem;
+}
+
+@-webkit-keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1600 - 300)));
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  margin: auto;
+  overflow: hidden;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+@media (min-width: 75em) {
+  .container {
+    padding: 0 12rem;
+  }
+}
+
+@media (min-width: 37.5em) {
+  .container {
+    padding: 0 6rem;
+  }
+}
+
+.restart-btn {
+  display: none;
+  background: #dbdbdb;
+  padding: .75rem 1.25rem;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: .2s all linear;
+  transition: .2s all linear;
+  text-transform: capitalize;
+  margin-bottom: 1.25rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.restart-btn:hover {
+  background: #003699;
+  color: #f4f4f4;
+}
+
+header {
+  text-align: center;
+  margin: 1rem;
+}
+
+header h1 {
+  margin-bottom: 0.75rem;
+}
+
+header .score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .score p {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  padding: .75rem;
+}
+
+header .score .player {
+  color: #f4f4f4;
+  background-color: #003699;
+}
+
+header .score .computer {
+  color: #f4f4f4;
+  background-color: #333333;
+}
+
+.choices {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+@media (min-width: 37.5em) {
+  .choices {
+    gap: 2rem;
+  }
+}
+
+.choices .choice {
+  cursor: pointer;
+  background: #669cff;
+  color: #f4f4f4;
+  font-weight: 500;
+  padding: .5rem .75rem;
+  border-radius: 4px;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.choices .choice:hover {
+  color: #f4f4f4;
+  background: #002466;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 1.25rem 0;
+}
+
+footer h4 {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+/*# sourceMappingURL=styles.css.map */

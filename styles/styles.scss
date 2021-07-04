@@ -1,0 +1,146 @@
+@import './variables';
+@import './mixins';
+@import "./modal";
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+html,
+body{
+    height: 100%;
+}
+
+
+body{
+    font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1600 - 300)));
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color:#333;
+}
+
+.container{
+    // max-width: 1100px;
+    // height: 100%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 1rem;
+    text-align: center;
+
+    @include respond(big-desktop){
+        // width: 650px;
+    }
+
+    @include respond(desktop){
+        // width: 450px;
+        padding: 0 12rem
+    }
+
+    @include respond(tab-land){
+        // width: 450px;
+    }
+
+    @include respond(tab-port){
+        // width: 450px;
+        padding: 0 6rem
+    }
+}
+
+
+.restart-btn {
+    display: none;
+    background: darken($light-color, 10%);
+    padding:.75rem 1.25rem;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition:.2s all linear;
+    text-transform: capitalize;
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+    text-align: center;
+
+    &:hover{
+        background: $primary-color;
+        color:$light-color;
+    }
+}
+
+
+header{
+    text-align: center;
+    margin: 1rem;
+
+    h1{
+        margin-bottom: 0.75rem;
+    }
+
+    .score{
+        display: flex;
+       
+        p{
+            flex: 0 0 50%;
+            padding: .75rem;
+        }
+
+        .player {
+            color:$light-color;
+            background-color: $primary-color;
+        }
+
+        .computer {
+            color:$light-color;
+            background-color: $dark-color;
+        }
+    }
+}
+
+.choices{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:1rem;
+    margin-top: 1.25rem;
+    text-align: center;
+
+    @include respond(tab-port){
+        gap:2rem;
+    }
+
+    .choice{
+        cursor: pointer;
+        background: lighten($primary-color, 40%);
+        color: $light-color;
+        font-weight: 500;
+        padding: .5rem .75rem;
+        border-radius: 4px;
+        transition:.2s all ease-in;
+
+        &:hover{
+            color:$light-color;
+            background: darken($primary-color, 10%);
+
+        }
+    }
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem 0;
+
+    h4{
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+}
